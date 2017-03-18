@@ -3,10 +3,12 @@
 
 *Default Structure for A Basic Project*
 
-**Java 7**
+**Java 8**
 
 * Maven
-* JUnit 4
+* TestNG
+* Log4j
+* Selenium WebDriver
 
 Java Project for SQA Boot Camp Program. 
 
