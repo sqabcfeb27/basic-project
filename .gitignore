@@ -194,4 +194,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Test Reports
+test-output
+
 # End of https://www.gitignore.io/api/eclipse,java,intellij,maven,osx,windows
