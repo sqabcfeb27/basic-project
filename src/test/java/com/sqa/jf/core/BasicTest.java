@@ -1,36 +1,16 @@
 package com.sqa.jf.core;
 
 import java.util.concurrent.*;
-import org.apache.log4j.*;
-import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.openqa.selenium.firefox.*;
 import org.openqa.selenium.ie.*;
 import org.openqa.selenium.safari.*;
 import org.testng.annotations.*;
-import com.sqa.jf.helpers.*;
 
-public abstract class BasicTest {
-
-	private WebDriver driver;
-	private String baseURL;
-	private Logger logger = Logger.getLogger(BasicTest.class);
+public abstract class BasicTest extends Core {
 
 	public BasicTest(String baseURL) {
-		super();
-		this.baseURL = baseURL;
-	}
-
-	public String getBaseURL() {
-		return this.baseURL;
-	}
-
-	public WebDriver getDriver() {
-		return this.driver;
-	}
-
-	public Logger getLogger() {
-		return this.logger;
+		super(null, baseURL);
 	}
 
 	@BeforeTest(enabled = false)
@@ -63,13 +43,5 @@ public abstract class BasicTest {
 	@BeforeMethod
 	public void setupTest() {
 		this.driver.get(getBaseURL());
-	}
-
-	public boolean takeScreenshot(String fileName) {
-		fileName = fileName.replace(" ", "_");
-		fileName = fileName.replace("*", "");
-		fileName = fileName.replace("\"", "");
-		fileName = fileName.replace(",", "");
-		return AutoBasics.takeScreenshot(getDriver(), "screenshots/" + fileName, getLogger());
 	}
 }
