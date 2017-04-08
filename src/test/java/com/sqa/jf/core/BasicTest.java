@@ -13,6 +13,11 @@ public abstract class BasicTest extends Core {
 		super(null, baseURL);
 	}
 
+	@AfterTest
+	public void closeDriver() {
+		this.driver.quit();
+	}
+
 	@BeforeTest(enabled = false)
 	public void setupChrome() {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
@@ -42,6 +47,6 @@ public abstract class BasicTest extends Core {
 
 	@BeforeMethod
 	public void setupTest() {
-		this.driver.get(getBaseURL());
+		getDriver().get(getBaseURL());
 	}
 }
